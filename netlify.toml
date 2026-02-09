@@ -1,0 +1,28 @@
+# netlify.toml
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**File structure should be:**
+```
+DocWeaver/
+├── netlify.toml          ← Create this file HERE
+├── clinical_orchestrator/
+│   ├── api.py
+│   └── ...
+└── frontend/
+    ├── lib/
+    │   └── api.ts       ← Your file is here
+    ├── app/
+    ├── package.json
+    └── next.config.js
